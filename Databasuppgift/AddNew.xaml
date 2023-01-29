@@ -1,0 +1,58 @@
+﻿<Window x:Class="Databasuppgift.AddNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Databasuppgift"
+        mc:Ignorable="d"
+        Title="Add New Book" Height="450" Width="800">
+    <StackPanel>
+        <Grid Height="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="authorbtn" Grid.Column="1" Grid.Row="3" Content="New Author" Margin="10,10,133,10" Click="authorbtn_Click"/>
+            <Button x:Name="seriesbtn" Grid.Column="1" Grid.Row="4" Content="New Series" Margin="10,10,133,10" Click="seriesbtn_Click"/>
+            <Button x:Name="genrebtn" Grid.Column="1" Grid.Row="6" Content="New Genre" Margin="10" Click="genrebtn_Click"/>
+            <DataGrid x:Name="seriesGrid" d:ItemsSource="{Binding}" Grid.ColumnSpan="1" Grid.RowSpan="3" Margin=" 10" Grid.Row="0" Grid.Column="2" SelectionChanged="seriesGrid_SelectionChanged"/>
+            <DataGrid x:Name="authorGrid" d:ItemsSource="{Binding}" Grid.ColumnSpan="1" Grid.RowSpan="3" Margin=" 10" Grid.Row="0" Grid.Column="0" SelectionChanged="authorGrid_SelectionChanged"/>
+            <DataGrid x:Name="chosenGenreGrid" d:ItemsSource="{Binding}" Grid.ColumnSpan="1" Grid.RowSpan="3" Margin=" 10" Grid.Row="4" Grid.Column="0" MouseDoubleClick="chosenGenreGrid_MouseDoubleClick"/>
+            <DataGrid x:Name="genreGrid" d:ItemsSource="{Binding}" Grid.ColumnSpan="1" Grid.RowSpan="3" Margin=" 10" Grid.Row="4" Grid.Column="2" MouseDoubleClick="genreGrid_MouseDoubleClick"/>
+            <TextBox x:Name="nametxt" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Name" VerticalAlignment="Center" Width="250" Height="30"/>
+            <TextBox x:Name="yeartxt" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Year" VerticalAlignment="Center" Width="250" Height="30"/>
+            <TextBox x:Name="ordertxt" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Height="30" Margin="0,18,0,0"/>
+            <ComboBox x:Name="statusbox" Grid.Column="1" Grid.Row="2" Margin="7" IsEditable="False" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="Not read"/>
+                <ComboBoxItem Content="Reading"/>
+                <ComboBoxItem Content="Read"/>
+            </ComboBox>
+            <Label x:Name="authorlbl" Grid.Column="1" Grid.Row="3" Content="" HorizontalAlignment="Left" Margin="138,0,0,0" VerticalAlignment="Center" Width="118"/>
+            <Label x:Name="serieslbl" Grid.Column="1" Grid.Row="4" Content="" HorizontalAlignment="Left" Margin="138,0,0,0" VerticalAlignment="Center" Width="118"/>
+            <RadioButton x:Name="alivecheck" Content="Alive" FontSize="14" HorizontalAlignment="Left" Margin="62,0,0,0" Grid.Row="3" VerticalAlignment="Center" IsEnabled="False" GroupName="authorstatus"/>
+            <RadioButton x:Name="deadcheck" Content="Dead" FontSize="14" HorizontalAlignment="Left" Margin="145,0,0,0" Grid.Row="3" VerticalAlignment="Center" IsEnabled="False" GroupName="authorstatus"/>
+            <Label Grid.Column="1" Content="Click &quot;new&quot; button to start making a new thing." HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="292" Grid.ColumnSpan="2" Margin="241,49,0,0" Grid.RowSpan="2"/>
+            <Label Grid.Column="1" Content="Click the same button again to save the new thing." HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="292" Margin="241,22,0,0" Grid.ColumnSpan="2"/>
+            <Label Grid.Column="1" Content="Order in series" HorizontalAlignment="Left" Margin="7,45,0,0" Grid.Row="4" VerticalAlignment="Top" Grid.RowSpan="2" Width="111"/>
+        </Grid>
+        <Grid Height="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="cancelbtn" Click="cancelbtn_Click" Grid.Column="0" Content="Cancel" FontSize="20" Margin="150,10,60,-60"/>
+            <Button x:Name="finishbtn" Grid.Column="1" Content="Finish" FontSize="20" Margin="60,10,150,-60" Click="finishbtn_Click"/>
+        </Grid>
+    </StackPanel>
+</Window>
